@@ -1,0 +1,31 @@
+<div class="filter">
+    <input type="text" name="filter" [(ngModel)]="filteredTags" placeholder="Enter filter tags">
+    <button (click)="filterTags()">Filter</button>
+    <button (click)="reload();">Cancel</button>
+</div>
+<ul class="product-list">
+    <li class=" product-item" *ngFor="let product of products$ | async" (click)="goToDetails(product.id)">
+        <p>{{product.name}}</p>
+        <p>{{product.price.toFixed(2)}} $</p>
+        <span *ngFor="let tag of product.tags" [style.color]="tag.color">{{tag.name}} </span>
+    </li>
+</ul>
+<div class="product-form">
+    <form>
+        <input name="name" type="text" [(ngModel)]="newProduct.name" placeholder="Name" required minlength="3"
+            #prodName="ngModel">
+        <textarea name="description" [(ngModel)]="newProduct.description" placeholder="Description"></textarea>
+        <input type="number" name="price" [(ngModel)]="newProduct.price" required min="0.01" #prodPrice="ngModel">
+        <input name="brand" type="text" [(ngModel)]="newProduct.brand" placeholder="Brand">
+        <input name="country" type="text" [(ngModel)]="newProduct.countryOfManufacturer"
+            placeholder="Country Of Manufacturer">
+        <button *ngIf="prodName.invalid || prodPrice.invalid; else elseBlock" disabled>Add Product</button>
+        <ng-template #elseBlock><button (click)="addProduct()">Add Product</button></ng-template>
+    </form>
+    <form>
+        <p>Type id to delete product</p>
+        <input type="text" name="product-id" [(ngModel)]="idToDelete">
+        <button (click)="deleteProduct()">Delete Product</button>
+    </form>
+    <button class="product-form__tag-manager-btn" (click)="goToTagManager()">Tag Manager</button>
+</div>

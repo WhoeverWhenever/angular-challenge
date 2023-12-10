@@ -1,0 +1,159 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Product-1",
+      "description": "Some description of Product-1",
+      "price": 13.5,
+      "tags": [
+        {
+          "id": 1,
+          "name": "gaming",
+          "color": "#ff0000"
+        },
+        {
+          "id": 2,
+          "name": "accessories",
+          "color": "#0000ff"
+        }
+      ],
+      "brand": "Common brand",
+      "countryOfManufacturer": "USA",
+      "color": "#ff0000"
+    },
+    {
+      "id": 2,
+      "name": "Product-2",
+      "description": "Some description of Product-2",
+      "price": 11.5,
+      "tags": [
+        {
+          "id": 4,
+          "name": "series",
+          "color": "#ffff00"
+        },
+        {
+          "id": 3,
+          "name": "clothes",
+          "color": "#00ff00"
+        }
+      ],
+      "brand": "Luxury brand",
+      "countryOfManufacturer": "USA",
+      "color": "#00ff00"
+    },
+    {
+      "id": 3,
+      "name": "Product-3",
+      "description": "Some description of Product-3",
+      "price": 9.65,
+      "tags": [
+        {
+          "id": 5,
+          "name": "animations",
+          "color": "#ffaa00"
+        },
+        {
+          "id": 1625720001686,
+          "name": "figures",
+          "color": "#00fbff"
+        }
+      ],
+      "brand": "Common brand",
+      "countryOfManufacturer": "Italy",
+      "color": "#00ff00"
+    },
+    {
+      "id": 4,
+      "name": "Product-4",
+      "description": "Some description of Product-4",
+      "price": 11,
+      "tags": [
+        {
+          "id": 5,
+          "name": "animations",
+          "color": "#ffaa00"
+        },
+        {
+          "id": 2,
+          "name": "accessories",
+          "color": "#0000ff"
+        }
+      ],
+      "brand": "Luxury brand",
+      "countryOfManufacturer": "France"
+    },
+    {
+      "id": 5,
+      "name": "Product-5",
+      "description": "Some description of Product-5",
+      "price": 5.5,
+      "tags": [
+        {
+          "id": 1,
+          "name": "gaming",
+          "color": "#ff0000"
+        },
+        {
+          "id": 3,
+          "name": "clothes",
+          "color": "#00ff00"
+        }
+      ],
+      "brand": "Luxury brand",
+      "countryOfManufacturer": "Ukraine"
+    },
+    {
+      "id": 972784740230,
+      "name": "Test-2",
+      "description": "Desc2",
+      "price": 3,
+      "tags": [
+        {
+          "id": 3,
+          "name": "clothes",
+          "color": "#00ff00"
+        },
+        {
+          "id": 5,
+          "name": "animations",
+          "color": "#ffaa00"
+        }
+      ],
+      "brand": "Unknown brand",
+      "countryOfManufacturer": "Italy"
+    }
+  ],
+  "tags": [
+    {
+      "id": 1,
+      "name": "gaming",
+      "color": "#ff0000"
+    },
+    {
+      "id": 2,
+      "name": "accessories",
+      "color": "#0000ff"
+    },
+    {
+      "id": 3,
+      "name": "clothes",
+      "color": "#00ff00"
+    },
+    {
+      "id": 4,
+      "name": "series",
+      "color": "#ffff00"
+    },
+    {
+      "id": 5,
+      "name": "animations",
+      "color": "#ffaa00"
+    },
+    {
+      "id": 1625720001686,
+      "name": "figures",
+      "color": "#00fbff"
+    }
+  ]
+}
