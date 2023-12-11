@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Setup
 
-To run this application you need to install json-server using `npm i json-server`.
+To run this application you need to install json-server using `npm i json-server` (or run `npm install if you cloned this project`).
 
 ## How to run
 
