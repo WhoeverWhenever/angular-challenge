@@ -1,30 +1,41 @@
-<ul class="tag-list">
-    <li class="tag-item" *ngFor="let tag of tags$ | async">
-        <p>Id: {{tag.id}}</p>
-        <p>Name: <span [style.color]="tag.color">{{tag.name}}</span></p>
-        <p>Color: {{tag.color}}</p>
-        <button (click)="deleteTag(tag.id)">Delete</button>
-        <button (click)="assignTag(tag.id)">Assign</button>
-    </li>
-</ul>
-<div class="control-panel">
+<div class="tag-manager-header">
+    <h2>Tag manager</h2>
     <button (click)="goBack()">Go Back</button>
-    <button (click)="getTags()">Show Tags</button>
 </div>
-<form>
-    <p>Create a new tag</p>
-    <input type="text" name="tagName" placeholder="Enter tag name" [(ngModel)]="newTag.name">
-    <input type="color" name="tagColor" [(ngModel)]="newTag.color">
-    <button (click)="addTag()">Create</button>
-</form>
-<form>
-    <p>Edit a tag</p>
-    <input type="text" name="tagId" placeholder="Enter tag id" [(ngModel)]="idToEdit">
-    <input type="text" name="tagName" placeholder="Enter new tag name" [(ngModel)]="updTag.name">
-    <input type="color" name="tagColor" [(ngModel)]="updTag.color">
-    <button (click)="editTag()">Edit</button>
-</form>
-<form>
-    <p>Enter product id to assign tag</p>
-    <input type="text" name="tm-product-id" [(ngModel)]="productId" placeholder="Enter product id">
-</form>
+<section class="tag-manager">
+    <div class="tag-block">
+        <ul class="tag-list">
+            <li class="tag-item" *ngFor="let tag of tags$ | async">
+                <div class="tag-item__row">
+                    <p>Id: {{tag.id}}</p>
+                    <p>Name: <span [style.color]="tag.color">{{tag.name}}</span></p>
+                    <p>Color: {{tag.color}}</p>
+                </div>
+                <div class="tag-item__row">
+                    <button (click)="deleteTag(tag.id)">Delete</button>
+                    <button (click)="assignTag(tag.id)">Assign</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="tag-panel">
+        <button class="tag-panel__show-tags-btn" (click)="getTags()">Show Tags</button>
+        <form class="tag-panel__add-form tag-panel-form">
+            <p>Create a new tag</p>
+            <input type="text" name="tagName" placeholder="Enter tag name" [(ngModel)]="newTag.name">
+            <input type="color" name="tagColor" [(ngModel)]="newTag.color">
+            <button (click)="addTag()">Create</button>
+        </form>
+        <form class="tag-panel__edit-form tag-panel-form">
+            <p>Edit a tag</p>
+            <input type="number" name="tagId" placeholder="Enter tag id" [(ngModel)]="idToEdit">
+            <input type="text" name="tagName" placeholder="Enter new tag name" [(ngModel)]="updTag.name">
+            <input type="color" name="tagColor" [(ngModel)]="updTag.color">
+            <button (click)="editTag()">Edit</button>
+        </form>
+        <form class="tag-panel__delete-form tag-panel-form">
+            <p>Enter product id to assign tag</p>
+            <input type="number" name="tm-product-id" [(ngModel)]="productId" placeholder="Enter product id">
+        </form>
+    </div>
+</section>

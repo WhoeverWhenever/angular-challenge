@@ -1,43 +1,201 @@
+.product-block{
+    border-top: 1px solid #000000;
+    border-bottom: 3px solid #000000;
+}
+
 .product-list {
     list-style: none;
+    padding: 0px 2%;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: space-around;
+    gap: 2%;
 }
 .product-item {
-    background-color: #65478766;
+    min-width: 300px;
+    margin: 10px 0px 0px 0px;
+    background-color: #3794ff;
     padding: 10px 15px;
     border: 1px solid #000000;
     text-align: center;
     &:hover{
-        background-color: #1202f821;
+        background-color: #51c8f7;
+        box-shadow: 0 0 2em 0 #3794ff;
+        cursor: pointer;
+    }
+    &__name{
+        font-size: 24px;
+        font-weight: 700;
+        color: #ffffff;
+    }
+    &__price{
+        font-size: 28px;
+        color: #ffffff;
+    }
+
+    &__tags{
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        font-size: 18px;
+    }
+    @media (max-width: 376px){
+        padding: 10px 5px;
+        img{
+            display: none;
+        }
     }
 }
 
 
-.product-form {
+.product-panel {
+    background-color: #3794ff;
     display: flex;
-    border: 1px solid #000000;
-    padding: 10px;
-    input, textarea{
-        display: block;
-        margin: 10px 10px;
+    @media (max-width: 769px){
+        flex-direction: column;
     }
-    form{
-        text-align: center;
+    &__add-form{
+        flex: 0 1 33%;
+        padding: 15px 3.5%;
+        border-right: 1px solid #ffffff;
+        @media (max-width: 769px){
+            border-right: none;
+            border-bottom: 1px solid #ffffff;
+        }
+    }
+    &__field{
+        color: #ffffff;
+        font-size: 18px;
+        margin: 0px 0px 15px 0px;
+        input{
+            height: 3em;
+            width: 67%;
+        }
+        textarea{
+            height: 5em;
+            width: 25em;
+            @media (max-width: 769px){
+                width: 67%;
+            }
+        }
+        input,label, textarea{
+            display: block;
+            margin: 0px auto;
+            text-align: center;
+        }
+    }
+    button{
+        height: 3em;
+        width: 35%;
+        background-color: #0077ff;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        display: block;
+        margin: 0px auto;
+        &:disabled{
+            background-color: #fab2b2;
+            color: #838181;
+            &:hover{
+                background-color: #fab2b2;
+            }
+        }
+        &:hover{
+            background-color: #40f4fabe;
+        }
+        @media (max-width: 1025px){
+            width: 67%;
+        }
+    }
+    &__delete-form{
+        flex: 0 1 33%;
+        padding: 15px 3.5%;
+        color: #ffffff;
+        border-bottom: 1px solid #ffffff;
+        font-size: 18px;
+        input{
+            height: 3em;
+        }
+        @media (max-width: 1025px){
+            button{
+                width: 67%;
+            }
+            input{
+                width: 90%;
+            }
+        }
+        @media (max-width: 769px){
+            input{
+                width: 67%;
+            }
+        }
+
     }
     &__tag-manager-btn{
-        height: 60px;
-        margin: 10px 0px 0px 0px;
-        font-size: 18px;
+        flex: 0 1 33%;
+        padding: 15px 3.5%;
+        border-right: 1px solid #ffffff;
+        @media (max-width: 769px){
+            border-right: none;
+            border-bottom: 1px solid #ffffff;
+        }
+        button{
+            width: 75%;
+            height: 5em;
+            display: block;
+            margin: 0px auto;
+            font-size: 24px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            background-color: #4664fa;
+            border: 3px solid #00fbff;
+            &:hover{
+                background-color: #647efe;
+            }
+            @media (max-width: 1025px){
+                letter-spacing: 1px;
+                font-size: 20px;
+                width: 90%;
+            }
+            @media (max-width: 769px){
+                width: 75%;
+            }
+        }
     }
 }
 
 .filter{
-    padding: 20px 0px;
-    text-align: center;
+    background-color: #3794ff;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 50px;
     input, button{
         font-size: 16px;
         line-height: 1.5;
     }
+    @media (max-width: 769px){
+        flex-direction: column;
+        padding: 0px 10px 20px 10px;
+    }
+    @media (max-width: 376px){
+        button{
+            display: block;
+            margin: 5px auto 0px auto;
+            height: 2em;
+        }
+        input, button{
+            width: 12em;
+        }
+        input{
+            height: 3em;
+        }
+    }
+}
+
+.app-header{
+    letter-spacing: 2px;
+    font-style: italic;
 }

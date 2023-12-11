@@ -1,18 +1,121 @@
-.product-detail{
-    display: inline-block;
-    border: 1px solid #000000;
-    padding: 0px 10px 10px 10px;
-    margin: 0px 0px 10px 0px;
+.details-header{
+    background-color: #3794ff;
+    color: #ffffff;
+    letter-spacing: 2px;
+    font-style: italic;
+    padding: 5px 50px;
+    font-size: 24px;
+    margin: 0px 0px 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    button{
+        height: 3em;
+    }
+    @media (max-width: 500px){
+        letter-spacing: 1px;
+        font-size: 20px;
+        padding: 5px 15px;
+    }
+    @media (max-width: 376px){
+        font-size: 18px;
+        padding: 5px 10px;
+    }
 }
+
 button{
-    display: block;
-    margin: 10px 0px;
+    background-color: #0040ff;
+    color: #ffffff;
+    border: 1px solid #4664fa;
+    &:disabled{
+        background-color: #fab2b2;
+        color: #838181;
+        &:hover{
+            background-color: #fab2b2;
+        }
+    }
+    &:hover{
+        background-color: #58b6fa;
+    }
 }
-form{
-    display: inline-block;
-    border: 1px solid #000000;
-    input,textarea, button{
+
+.product-info{
+    display: flex;
+    justify-content: space-between;
+    &__item{
+        flex: 0 1 50%;
+        padding: 10px 10px 10px 10px;
+        background-color: #3794ff;
+        color: #ffffff;
+        &:first-child{
+            border-left: 2px solid #ffffff;
+        }
+        &:last-child{
+            border-left: 2px solid #ffffff;
+        }
+    }
+    @media (max-width: 769px){
+        flex-direction: column;
+        &__item{
+            &:first-child{
+            border-bottom: 2px solid #ffffff;
+        }
+        &:last-child{
+            border-top: 2px solid #ffffff;
+        }
+    }
+    }
+}
+
+.product-details{
+    font-size: 24px;
+    display: flex;
+    flex-direction: column;
+    p{
+        margin: 0px 0px 1em 0px;
+    }
+    &__info-fields{
+        flex: 1 1 auto;
+        text-align: justify;
+    }
+    button{
+        width: 30%;
+        height: 3em;
+        @media (max-width: 426px){
+            width: 50%;
+        }
+    }
+    @media (max-width: 1025px){
+        font-size: 20px;
+    }
+    @media (max-width: 769px){
+        font-size: 18px;
+    }
+}
+.product-update-form{
+    &__update-field{
+        font-size: 18px;
+        margin: 0px 0px 20px 0px;
+        input{
+            height: 3em;
+        }
+        textarea{
+            height: 5em;
+            width: 20em;
+        }
+        input,label, textarea{
+            display: block;
+            margin: 0px auto;
+            text-align: center;
+        }
+    }
+    button{
         display: block;
-        margin: 10px 10px;
+        margin: 0px auto;
+        height: 3em;
+        width: 30%;
+        @media (max-width: 426px){
+            width: 50%;
+        }
     }
 }

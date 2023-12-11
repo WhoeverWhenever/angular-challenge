@@ -1,31 +1,62 @@
 <div class="filter">
-    <input type="text" name="filter" [(ngModel)]="filteredTags" placeholder="Enter filter tags">
-    <button (click)="filterTags()">Filter</button>
-    <button (click)="reload();">Cancel</button>
+    <h1 class="app-header">Angular app</h1>
+    <form class="filter__form">
+        <input type="text" name="filter" [(ngModel)]="filteredTags" placeholder="Enter filter tags">
+        <button (click)="filterTags()">Filter</button>
+        <button (click)="reload()">Cancel</button>
+    </form>
 </div>
-<ul class="product-list">
-    <li class=" product-item" *ngFor="let product of products$ | async" (click)="goToDetails(product.id)">
-        <p>{{product.name}}</p>
-        <p>{{product.price.toFixed(2)}} $</p>
-        <span *ngFor="let tag of product.tags" [style.color]="tag.color">{{tag.name}} </span>
-    </li>
-</ul>
-<div class="product-form">
-    <form>
-        <input name="name" type="text" [(ngModel)]="newProduct.name" placeholder="Name" required minlength="3"
-            #prodName="ngModel">
-        <textarea name="description" [(ngModel)]="newProduct.description" placeholder="Description"></textarea>
-        <input type="number" name="price" [(ngModel)]="newProduct.price" required min="0.01" #prodPrice="ngModel">
-        <input name="brand" type="text" [(ngModel)]="newProduct.brand" placeholder="Brand">
-        <input name="country" type="text" [(ngModel)]="newProduct.countryOfManufacturer"
-            placeholder="Country Of Manufacturer">
+<div class="product-block">
+    <ul class="product-list">
+        <li class=" product-item" *ngFor="let product of products$ | async" (click)="goToDetails(product.id)">
+            <img class="product-item__image" src="https://placehold.co/300x200/ffffff/3794ff" alt="" loading="lazy">
+            <p class="product-item__name">{{product.name}}</p>
+            <p class="product-item__price">{{product.price.toFixed(2)}} $</p>
+            <ul class="product-item__tags">
+                <li class="product-item__tag" *ngFor="let tag of product.tags" [style.color]="tag.color">{{tag.name}}
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="product-panel">
+    <form class="product-panel__add-form">
+        <div class="product-panel__field">
+            <label for="name">Name (required): </label>
+            <input id="name" name="name" type="text" [(ngModel)]="newProduct.name" placeholder="Name" required
+                minlength="3" #prodName="ngModel">
+        </div>
+        <div class="product-panel__field">
+            <label for="price">Price (required): </label>
+            <input id="price" name="price" type="number" [(ngModel)]="newProduct.price" required min="0.01"
+                #prodPrice="ngModel">
+        </div>
+        <div class="product-panel__field">
+            <label for="brand">Brand: </label>
+            <input id="brand" name="brand" type="text" [(ngModel)]="newProduct.brand" placeholder="Brand">
+        </div>
+        <div class="product-panel__field">
+            <label for="brand">Country: </label>
+            <input id="country" name="country" type="text" [(ngModel)]="newProduct.countryOfManufacturer"
+                placeholder="Country Of Manufacturer">
+        </div>
+        <div class="product-panel__field">
+            <label for="description">Description: </label>
+            <textarea id="description" name="description" [(ngModel)]="newProduct.description"
+                placeholder="Description">
+            </textarea>
+        </div>
         <button *ngIf="prodName.invalid || prodPrice.invalid; else elseBlock" disabled>Add Product</button>
         <ng-template #elseBlock><button (click)="addProduct()">Add Product</button></ng-template>
     </form>
-    <form>
-        <p>Type id to delete product</p>
-        <input type="text" name="product-id" [(ngModel)]="idToDelete">
+    <div class="product-panel__tag-manager-btn">
+        <button (click)="goToTagManager()">Tag Manager</button>
+    </div>
+    <form class="product-panel__delete-form">
+        <div class="product-panel__field">
+            <label for="product-id">Type id to delete product: </label>
+            <input id="product-id" name="product-id" type="text" [(ngModel)]="idToDelete">
+        </div>
         <button (click)="deleteProduct()">Delete Product</button>
     </form>
-    <button class="product-form__tag-manager-btn" (click)="goToTagManager()">Tag Manager</button>
 </div>

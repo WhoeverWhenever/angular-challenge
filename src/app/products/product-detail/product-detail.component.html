@@ -1,28 +1,49 @@
-<div class="product-info">
-    <div class="product-detail" *ngIf="product">
-        <p>Id: {{product.id}}</p>
-        <p>Name: {{product.name}}</p>
-        <p>Description: {{product.description}}</p>
-        <p>Price: {{product.price.toFixed(2)}} $</p>
-        <p>Brand: {{product.brand}}</p>
-        <p>Country: {{product.countryOfManufacturer}}</p>
-        <p>Tags: <span *ngFor="let tag of product?.tags" [style.color]="tag.color">{{tag.name}} </span> </p>
+<div class="details-header">
+    <h2>Product details</h2>
+    <button (click)="goBack()">Go Back</button>
+</div>
+<section class="product-info">
+    <div class="product-info__item product-details" *ngIf="product">
+        <div class="product-details__info-fields">
+            <p>Id: {{product.id}}</p>
+            <p>Name: {{product.name}}</p>
+            <p>Description: {{product.description}}</p>
+            <p>Price: {{product.price.toFixed(2)}} $</p>
+            <p>Brand: {{product.brand}}</p>
+            <p>Country: {{product.countryOfManufacturer}}</p>
+            <p>Tags: <span *ngFor="let tag of product?.tags" [style.color]="tag.color">{{tag.name}} </span> </p>
+        </div>
+        <button (click)="deleteCurrentProduct()">Delete</button>
     </div>
-    <br>
-    <form>
-        <input name="name" type="text" [(ngModel)]="newProduct.name" placeholder="Name" required minlength="3"
-            #updName="ngModel">
-        <textarea name="description" [(ngModel)]="newProduct.description" placeholder="Description" required
-            minlength="5" #updDesc="ngModel"></textarea>
-        <input type="number" name="price" [(ngModel)]="newProduct.price" required min="0.01" #updPrice="ngModel">
-        <input name="brand" type="text" [(ngModel)]="newProduct.brand" placeholder="Brand" required #updBrand="ngModel">
-        <input name="country" type="text" [(ngModel)]="newProduct.countryOfManufacturer"
-            placeholder="Country Of Manufacturer" required #updCountry="ngModel">
+    <form class="product-info__item product-update-form">
+        <div class="product-update-form__update-field">
+            <label for="name">Name: </label>
+            <input id="name" name="name" type="text" [(ngModel)]="newProduct.name" placeholder="Name" required
+                minlength="3" #updName="ngModel">
+        </div>
+        <div class="product-update-form__update-field">
+            <label for="price">Price: </label>
+            <input id="price" type="number" name="price" [(ngModel)]="newProduct.price" required min="0.01"
+                #updPrice="ngModel">
+        </div>
+        <div class="product-update-form__update-field">
+            <label for="brand">Brand: </label>
+            <input id="brand" name="brand" type="text" [(ngModel)]="newProduct.brand" placeholder="Brand" required
+                #updBrand="ngModel">
+        </div>
+        <div class="product-update-form__update-field">
+            <label for="country">Country: </label>
+            <input id="country" name="country" type="text" [(ngModel)]="newProduct.countryOfManufacturer"
+                placeholder="Country Of Manufacturer" required #updCountry="ngModel">
+        </div>
+        <div class="product-update-form__update-field">
+            <label for="description">Description: </label>
+            <textarea id="description" name="description" [(ngModel)]="newProduct.description" placeholder="Description"
+                required minlength="5" #updDesc="ngModel"></textarea>
+        </div>
         <button
             *ngIf="updName.invalid || updDesc.invalid || updPrice.invalid || updBrand.invalid || updCountry.invalid; else elseBlock"
             disabled>Update Product</button>
         <ng-template #elseBlock><button (click)="updateCurrentProduct()">Update Product</button></ng-template>
     </form>
-    <button (click)="goBack()">Go Back</button>
-    <button (click)="deleteCurrentProduct()">Delete</button>
-</div>
+</section>
