@@ -2,26 +2,47 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.6.
 
-## Development server
+## Setup
 
+To run this application you need to install json-server using `npm i json-server`.
+
+## How to run
+
+Run `json-server --watch products.json` to get access to mock-up data.
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+## How to test
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Filtering
 
-## Build
+Enter the tags you need splitting them by space and click `Filter`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Click `Cancel` to clear the filter.
 
-## Running unit tests
+### Product list
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+To add a new product you need to enter only name and price data and click on a button.
 
-## Running end-to-end tests
+To go to `Tag Manager` click on a `Tag Manager` button.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+To delete a product you need to enter its id and click `Delete Product`
 
-## Further help
+### Product details
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Click on a product card to go to product details.
+
+To update the product you need to enter data in all fields.
+
+To delete click `Delete`.
+
+To go back to the product list click `Go Back`
+
+### Tag manager
+
+Click `Show Tags` to see the list of tags.
+
+To add a new tag enter a tag name, choose the color and click `Create`.
+
+To edit the tag enter the tag id, name, choose the color and click `Edit`.
+
+To assign a tag to a specific product enter the product id and click `Assign` button on the tag you want to add.
