@@ -9,6 +9,7 @@ To run this application you need to install json-server using `npm i json-server
 ## How to run
 
 Run `json-server --watch products.json` to get access to mock-up data.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## How to test
